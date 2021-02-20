@@ -1,0 +1,6 @@
+@EndUserText.label: 'Purchase T'
+define service ZRISHI_SD_M_Purchase {
+  expose zc_po_header;
+  expose zc_po_item;
+  expose ZC_POSTATUSVH;
+}

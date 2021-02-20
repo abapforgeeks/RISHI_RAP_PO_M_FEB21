@@ -1,0 +1,29 @@
+managed implementation in class zbp_i_po_header unique;
+
+define behavior for zi_po_header alias PurchaseHeader
+persistent table zpurchase_doc
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  mapping for zpurchase_doc corresponding;
+//  field ( readonly ) purchase_doc;
+  create;
+  update;
+  delete;
+  association _Item { create; }
+  action copyPO result [1] $self;
+}
+
+define behavior for zi_po_item alias PurchaseItem
+persistent table zpurchase_item
+lock dependent by _Header
+//authorization dependent by <association>
+//etag master <field_name>
+{
+  mapping for zpurchase_item corresponding;
+  field ( readonly ) purchase_doc;
+  update;
+  delete;
+  association _Header;
+}

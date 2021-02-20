@@ -1,0 +1,78 @@
+@Metadata.layer: #CORE
+@UI:{
+
+headerInfo:{
+ typeName: 'Purchase Document',
+ typeNamePlural: 'Purchase Documents',
+ description:{ value: 'po_desc',type: #STANDARD },
+ title:{ value: 'purchase_doc',type: #STANDARD } }
+
+}
+annotate view zc_po_header with
+{
+  @UI.facet: [
+   {
+
+   id:'Status',
+   type: #DATAPOINT_REFERENCE,
+   purpose: #HEADER,
+   targetQualifier: 'po_status'
+    },
+   {
+   id:'Priority',
+   type: #DATAPOINT_REFERENCE,
+   purpose: #HEADER,
+   targetQualifier: 'po_priority'
+    },
+     //section1: Purchase Info
+    {
+
+    id:'PurchaseSection',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Purchase Information'
+
+    },
+
+    //showing item data
+    {
+    id:'PurchaseItems',
+    type: #LINEITEM_REFERENCE,
+    purpose: #STANDARD,
+    label: 'Purchase Items',
+    targetElement: '_Item'
+    }
+    ]
+
+
+  @UI.lineItem: [{ position:10,label:'Purchase Document' },
+  { type:#FOR_ACTION,dataAction: 'CopyPurchase',label: 'Copy Purchase Document' ,position: 10}]
+  @UI.identification: [{ position: 9,label:'Purchase Document' }]
+  purchase_doc;
+  @UI.lineItem: [{ position:20,label:'Purchase Description' }]
+  @UI.identification: [{ position: 10,label: 'Purchase Description' }]
+  po_desc;
+  @UI.lineItem: [{ position:30,label: 'Purchase Status'  }]
+  @UI.identification: [{ position: 20,label: 'Purchase Status' }]
+  @UI.dataPoint:{ title: 'Status' }
+  @UI.selectionField: [{ position: 10 }]
+  po_status;
+  @UI.lineItem: [{ position: 40,label: 'Purchase Priority' }]
+  @UI.identification: [{ position: 30,label: 'Purchase Priority' }]
+  @UI.dataPoint:{ title: 'Priority' }
+  @UI.selectionField: [{ position: 10 }]
+  po_priority;
+  @UI.lineItem: [{ position: 50,label: 'Company Code' }]
+  @UI.identification: [{ position: 40,label: 'Company Code' }]
+  @UI.selectionField: [{ position: 10 }]
+  ccode;
+  @UI.lineItem: [{ position: 60, label: 'Created By' }]
+  @UI.identification: [{ position: 50,label: 'Created By' }]
+  create_by;
+  @UI.lineItem: [{ position: 70,label:'Created Date/Time' }]
+  @UI.identification: [{ position: 60,label: 'Created Date/Time' }]
+  created_date_time;
+  @UI.lineItem: [{ position: 80,label: 'Changed Date/Time' }]
+  @UI.identification: [{ position: 70,label: 'Changed Date/Time' }]
+  changed_date_time;
+
+}
