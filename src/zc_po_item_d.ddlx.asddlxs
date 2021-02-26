@@ -1,0 +1,43 @@
+@Metadata.layer: #CORE
+annotate view ZI_PO_ITEM_D with
+{
+
+  @UI.facet: [
+  {
+
+
+
+      id:'PurchaseSection',
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Purchase Information'
+
+      }
+
+
+  ]
+//  @UI.lineItem: [{ position: 10,label:'Purchase Document' }]
+//  @UI.identification: [{ position: 10,label:'Purchase Document' }]
+//  purchase_doc;
+  @UI.lineItem: [{ position: 20,label:'Item' }]
+  @UI.identification: [{ position: 20,label:'Item No' }]
+  purchase_item;
+  @UI.lineItem: [{ position: 30,label:'Item Description' }]
+  @UI.identification: [{ position: 30,label:'Item Desc' }]
+  short_text;
+  @UI.lineItem: [{ position: 40,label:'Price' }]
+  @UI.identification: [{ position: 40,label:'Price' }]
+  price;
+  @UI.lineItem: [{ position: 50,label:'Currency' }]
+  @UI.identification: [{ position: 50,label:'Currency' }]
+  currency;
+  @UI.lineItem: [{ position: 60,label:'Quantity' }]
+  @UI.identification: [{ position: 60,label:'Quantity' }]
+  quantity;
+  @UI.lineItem: [{ position: 70,label:'Unit' }]
+  @UI.identification: [{ position: 70,label:'Unit' }]
+  unit;
+  @UI.lineItem: [{ position: 80,label:'Last Change Date/time' }]
+  @UI.identification: [{ position: 80,label:'Change Date/Tiem' }]
+  change_date_time;
+
+}

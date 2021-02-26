@@ -1,0 +1,30 @@
+managed implementation in class zbp_i_po_header_d unique;
+with draft;
+define behavior for ZI_PO_HEADER_D //alias <alias_name>
+persistent table zrishi_d_podoc
+draft table zrishi_podoc_d
+lock master
+//authorization master ( instance )
+total etag changed_date_time
+etag master lcl_last_changedtime
+{
+  field ( numbering : managed, readonly ) purchase_uuid;
+  create;
+  update;
+  delete;
+  association _Item { create; with draft; }
+}
+
+define behavior for ZI_PO_ITEM_D //alias <alias_name>
+persistent table zrishi_d_poitem
+draft table zrishi_poitem_d
+lock dependent by _Header
+//authorization dependent by <association>
+etag master local_change_date_time
+{
+  field ( readonly ) parent_uuid;
+  field ( numbering : managed, readonly ) item_uuid;
+  update;
+  delete;
+  association _Header{with draft;}
+}

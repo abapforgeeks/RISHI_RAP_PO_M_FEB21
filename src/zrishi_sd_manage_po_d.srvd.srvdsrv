@@ -1,0 +1,5 @@
+@EndUserText.label: 'Draft PO'
+define service Zrishi_sd_manage_PO_D {
+  expose ZI_PO_HEADER_D;
+  expose ZI_PO_ITEM_D;
+}
