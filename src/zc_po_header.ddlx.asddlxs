@@ -65,14 +65,23 @@ annotate view zc_po_header with
   @UI.identification: [{ position: 40,label: 'Company Code' }]
   @UI.selectionField: [{ position: 10 }]
   ccode;
-  @UI.lineItem: [{ position: 60, label: 'Created By' }]
-  @UI.identification: [{ position: 50,label: 'Created By' }]
-  create_by;
-  @UI.lineItem: [{ position: 70,label:'Created Date/Time' }]
-  @UI.identification: [{ position: 60,label: 'Created Date/Time' }]
-  created_date_time;
+//  @UI.lineItem: [{ position: 60, label: 'Created By' }]
+//  @UI.identification: [{ position: 50,label: 'Created By' }]
+//  create_by;
+//  @UI.lineItem: [{ position: 70,label:'Created Date/Time' }]
+//  @UI.identification: [{ position: 60,label: 'Created Date/Time' }]
+//  created_date_time;
   @UI.lineItem: [{ position: 80,label: 'Changed Date/Time' }]
   @UI.identification: [{ position: 70,label: 'Changed Date/Time' }]
   changed_date_time;
+  @UI.lineItem: [{ position: 90,label: 'Overall Price' }]
+  
+  @UI.identification: [{ position: 80,label: 'Overall Price' }]
+  total_poprice;
+  @UI.lineItem: [{ position: 100,label: 'Currency' }]
+  
+  @UI.identification: [{ position: 90,label: 'Currency' }]
+  
+  currency;
 
 }

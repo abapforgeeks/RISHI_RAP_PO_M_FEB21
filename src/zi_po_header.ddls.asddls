@@ -9,6 +9,8 @@ association[1] to ZI_RISHI_POStatus as _Status on $projection.po_status = _Statu
     po_status,
     po_priority,
     ccode ,
+    total_poprice,
+    zpurchase_doc.currency,
     @Semantics.user.createdBy: true
     create_by,
     @Semantics.systemDateTime.createdAt: true

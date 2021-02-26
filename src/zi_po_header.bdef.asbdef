@@ -11,8 +11,9 @@ lock master
   create;
   update;
   delete;
-  association _Item { create; }
   action copyPO result [1] $self;
+  validation validatePOStatus on save { create; field po_status ;}
+  association _Item { create; }
 }
 
 define behavior for zi_po_item alias PurchaseItem
@@ -23,6 +24,8 @@ lock dependent by _Header
 {
   mapping for zpurchase_item corresponding;
   field ( readonly ) purchase_doc;
+  field ( mandatory ) quantity;
+  determination calPOTotalPrice on save { create; field price,currency,quantity; }
   update;
   delete;
   association _Header;

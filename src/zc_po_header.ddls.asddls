@@ -17,6 +17,8 @@ define root view entity zc_po_header as projection on zi_po_header {
  changed_date_time,
  lcl_last_changedtime,
  _Status,
+ total_poprice,
+ currency,
  /* Associations */
  _Item   : redirected to composition child zc_po_item
 }
